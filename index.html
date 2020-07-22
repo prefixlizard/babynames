@@ -71,6 +71,10 @@
             $('#allInput').hide();       
          }
          
+         function saveNames() {
+            alert(aNames.length);
+         }
+         
       </script>
    </head>
    <body>
@@ -85,6 +89,7 @@
             </div>
             <div class="input-group mb-3">
                <button type="button" class="btn btn-success btn-block" onclick="finishSelection()">Abschließen</button>
+               <button type="button" class="btn btn-success btn-block" onclick="saveNames()">Liste speichern</button>
             </div>
          </div>
          <div class="container" id="cardCollection">
