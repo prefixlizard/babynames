@@ -15,7 +15,7 @@
       <script type="text/javascript">
          
          function addName() {
-            var sName = $('#inputName').value();
+            var sName = $('#inputName').val();
             alert(sName);
          }
          
@@ -28,6 +28,7 @@
    <body>
       <div class="container">
          <h1>Babynamen</h1>
+         
          <div class="input-group mb-3">
             <div class="input-group-prepend">
                <button class="btn btn-primary" type="button" id="button-addon1" onclick="addName()">Hinzufügen</button>
@@ -37,6 +38,11 @@
          
           <div class="input-group mb-3">
              <button type="button" class="btn btn-success btn-block">Abschließen</button>
+         </div>
+         
+         <div class="container" id="cardCollection">
+            
+            
          </div>
       </div>
       </div>
