@@ -14,6 +14,11 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
       <script type="text/javascript">
          
+         function addName() {
+            var sName = $('#button-addon1').text();
+            console.log(sName);
+         }
+         
          $(function() {
            // doc.ready
          });
@@ -25,7 +30,7 @@
          <h1>Babynamen</h1>
          <div class="input-group mb-3">
             <div class="input-group-prepend">
-               <button class="btn btn-primary" type="button" id="button-addon1">Hinzufügen</button>
+               <button class="btn btn-primary" type="button" id="button-addon1" onclick="addName()">Hinzufügen</button>
             </div>
             <input type="text" class="form-control" placeholder="Vorname" aria-label="Username" aria-describedby="basic-addon1"> 
          </div>
