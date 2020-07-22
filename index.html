@@ -35,6 +35,10 @@
             oNameInput.val('');    
          }
          
+         function finishSelection() {
+            $('#allInput').fadeOut();       
+         }
+         
          $(function() {
            // doc.ready
          });
@@ -45,6 +49,7 @@
       <div class="container">
          <h1>Babynamen</h1>
          
+         <div id="allInput">
          <div class="input-group mb-3">
             <div class="input-group-prepend">
                <button class="btn btn-primary" type="button" id="button-addon1" onclick="addName()">Hinzufügen</button>
@@ -53,7 +58,8 @@
          </div>
          
           <div class="input-group mb-3">
-             <button type="button" class="btn btn-success btn-block" disabled>Abschließen</button>
+             <button type="button" class="btn btn-success btn-block" onclick="finishSelection()">Abschließen</button>
+         </div>
          </div>
          
          
