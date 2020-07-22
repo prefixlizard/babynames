@@ -84,7 +84,12 @@
          }
          
           function loadNames() {
-            var storedNames = JSON.parse(localStorage.getItem("names"));         
+             aNames.clear();
+            var storedNames = JSON.parse(localStorage.getItem("names"));  
+             
+             for (var loadedName in storedNames)   {
+                addName(loadedName);
+             }
          }
          
       </script>
