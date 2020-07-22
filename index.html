@@ -17,6 +17,10 @@
          .btn-right {
             float: right;
          }
+         
+         .babyname-text {
+            font-size: 1.4em;
+         }
       </style>
       
        
@@ -28,9 +32,9 @@
          
          function createCard(sName) {
             var sCardDesign = '<div class="card"><div class="card-body">';
-            sCardDesign += '<h4>';
+            sCardDesign += '<p class="babyname-text">';
             sCardDesign += sName;
-            sCardDesign += '</h4>';
+            sCardDesign += '<p>';
             sCardDesign += '<button type="button" class="btn btn-danger btn-right" ';
             sCardDesign += 'onclick="disableCard(this)">';
             sCardDesign += 'Entfernen</button>';
