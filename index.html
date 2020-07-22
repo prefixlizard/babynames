@@ -15,8 +15,8 @@
       <script type="text/javascript">
          
          function addName() {
-            var sName = $('#button-addon1').text();
-            console.log(sName);
+            var sName = $('#inputName').text();
+            alert(sName);
          }
          
          $(function() {
@@ -32,7 +32,7 @@
             <div class="input-group-prepend">
                <button class="btn btn-primary" type="button" id="button-addon1" onclick="addName()">Hinzufügen</button>
             </div>
-            <input type="text" class="form-control" placeholder="Vorname" aria-label="Username" aria-describedby="basic-addon1"> 
+            <input type="text" class="form-control" placeholder="Vorname" aria-label="Username" aria-describedby="basic-addon1" id="inputName"> 
          </div>
          
           <div class="input-group mb-3">
