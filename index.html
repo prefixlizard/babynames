@@ -29,6 +29,8 @@
          }
       </style>
       <script type="text/javascript">
+         var aNames = [];
+         
          function disableCard(oDisableButton) {       
             $(oDisableButton).parents('.card').hide();
          }
@@ -50,6 +52,8 @@
          function addName() {
             var oNameInput = $('#inputName');
             var sName = oNameInput.val();
+            
+             aNames.push(sName);
             
             if (!sName) {
                return;
