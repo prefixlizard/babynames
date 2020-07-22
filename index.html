@@ -49,27 +49,30 @@
                 return oCard;
             }
 
-            function addName(sNameToBeAdded) {
-                var sName;
-                var oNameInput;
-                if (sNameToBeAdded) {
-                    sName = sNameToBeAdded;
-                } else {
-                    oNameInput = $("#inputName");
-                    sName = oNameInput.val();
-                }
+            function getNameFromUI() {
+                var oNameInput = $("#inputName");
+                var sName = oNameInput.val();
+                
+                return sName;
+            }
+            
+            function resetInputs() {
+                var oNameInput = $("#inputName");
+                oNameInput.val("");
+            }
+            
+            function onAdd() {
+                var sName = getNameFromUI();
+                addName(sName);
+                resetInputs();               
+            }
+            
+            function addName(sName) {
                 aNames.push(sName);
-
-                if (!sName) {
-                    return;
-                }
-
                 var oCard = createCard(sName);
-
+                
                 var oContainer = $("#cardCollection");
                 oContainer.prepend(oCard);
-
-                oNameInput.val("");
             }
 
             function finishSelection() {
@@ -97,7 +100,7 @@
             <div id="allInput">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <button class="btn btn-primary" type="button" id="button-addon1" onclick="addName()">Hinzufügen</button>
+                        <button class="btn btn-primary" type="button" id="button-addon1" onclick="onAdd()">Hinzufügen</button>
                     </div>
                     <input type="text" class="form-control" placeholder="Vorname" aria-label="Username" aria-describedby="basic-addon1" id="inputName" />
                 </div>
