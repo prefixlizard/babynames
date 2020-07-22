@@ -35,7 +35,9 @@
             var oNameInput = $('#inputName');
             var sName = oNameInput.val();
             
-            !sName? return;
+            if (!sName) {
+               return;
+            }
             
             var sCardDesign = createCardDesign(sName);
             var oCard = $(sCardDesign);
