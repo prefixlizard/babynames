@@ -75,6 +75,9 @@
             }
             
             function addName(sName) {
+                if (!sName) {
+                    return;
+                }
                 aNames.push(sName);
                 var oCard = createCard(sName);
                 
