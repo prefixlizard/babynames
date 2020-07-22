@@ -15,11 +15,14 @@
       <script type="text/javascript">
          
          function addName() {
-            var sName = $('#inputName').val();
+            var oNameInput = $('#inputName');
+            var sName = oNameInput.val();        
             var oCard = $('<div class="card"><div class="card-body">' + sName + '</div></div>');
-            var oContainer = $('#cardCollection');
             
+            var oContainer = $('#cardCollection');     
             oContainer.append(oCard);
+            
+            oNameInput.val('');    
          }
          
          $(function() {
