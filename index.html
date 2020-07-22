@@ -85,8 +85,8 @@
                 aNames = [];
                 var storedNames = JSON.parse(localStorage.getItem("names"));
 
-                for (var loadedName in storedNames) {
-                    addName(loadedName);
+                for (var loadedIndex in storedNames) {
+                    addName(storedNames[loadedIndex]);
                 }
             }
         </script>
