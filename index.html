@@ -29,7 +29,9 @@
          function createCard(sName) {
             var sCardDesign = '<div class="card"><div class="card-body">';
             sCardDesign += sName;
-            sCardDesign += '<button type="button" class="btn btn-danger btn-right">Entfernen</button>';
+            sCardDesign += '<button type="button" class="btn btn-danger btn-right" ';
+            sCardDesign += 'onclick="disableCard(this)">';
+            sCardDesign += 'Entfernen</button>';
             sCardDesign += '</div></div>';
                 
             var oCard = $(sCardDesign);
