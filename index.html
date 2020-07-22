@@ -72,7 +72,8 @@
          }
          
          function saveNames() {
-            alert(aNames.length);
+            localStorage.setItem("names", JSON.stringify(aNames));
+            alert(aNames.length + ' Namen gespeichert');           
          }
          
       </script>
