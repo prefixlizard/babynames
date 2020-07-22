@@ -22,13 +22,18 @@
        
       <script type="text/javascript">
          
-         function createCardDesign(sName) {
+         function disableCard(oCard) {
+            $(oCard).hide();  
+         }
+         
+         function createCard(sName) {
             var sCardDesign = '<div class="card"><div class="card-body">';
             sCardDesign += sName;
             sCardDesign += '<button type="button" class="btn btn-danger btn-right">Entfernen</button>';
             sCardDesign += '</div></div>';
-            
-            return sCardDesign;       
+                
+            var oCard = $(sCardDesign);
+            return oCard;
          }
          
          function addName() {
@@ -39,9 +44,8 @@
                return;
             }
             
-            var sCardDesign = createCardDesign(sName);
-            var oCard = $(sCardDesign);
-            
+            var oCard = createCard(sName);
+                    
             var oContainer = $('#cardCollection');     
             oContainer.prepend(oCard);
             
