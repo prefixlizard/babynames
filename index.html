@@ -16,6 +16,11 @@
          
          function addName() {
             var sName = $('#inputName').val();
+            var oCard = $('<div class="card"><div class="card-body">' + sName + '</div></div>');
+            var oContainer = $('#cardCollection');
+            
+            oContainer.append(oCard);
+            
             alert(sName);
          }
          
