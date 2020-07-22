@@ -23,6 +23,10 @@
             float: left;
             font-size: 1.5em;
          }
+         
+         .card-style {
+            background-color: #B8E8FF;
+         }
       </style>
       <script type="text/javascript">
          function disableCard(oDisableButton) {       
@@ -30,7 +34,7 @@
          }
          
          function createCard(sName) {
-            var sCardDesign = '<div class="card mb-2"><div class="card-body">';
+            var sCardDesign = '<div class="card mb-2 card-style"><div class="card-body">';
             sCardDesign += '<p class="babyname-text">';
             sCardDesign += sName;
             sCardDesign += '<p>';
