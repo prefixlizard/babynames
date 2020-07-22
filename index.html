@@ -49,10 +49,17 @@
             return oCard;
          }
          
-         function addName() {
-            var oNameInput = $('#inputName');
-            var sName = oNameInput.val();
+         function addName(sNameToBeAdded) {
+            var sName;
+            var oNameInput;
+            if (sNameToBeAdded) {
+               sName = sNameToBeAdded;
+            }
             
+            else {
+               oNameInput = $('#inputName');
+               sName = oNameInput.val();
+            }                            
              aNames.push(sName);
             
             if (!sName) {
