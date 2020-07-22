@@ -1,117 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-      <title>Babynamen</title>
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-      <style>   
-         body {
-            background-color: #89cff0;  
-         }
-         .btn-right {
-            float: right;
-         }     
-         .babyname-text {
-            float: left;
-            font-size: 1.5em;
-         }
-         
-         .card-style {
-            background-color: #B8E8FF;
-         }
-      </style>
-      <script type="text/javascript">
-         var aNames = [];
-         
-         function disableCard(oDisableButton) {       
-            $(oDisableButton).parents('.card').hide();
-         }
-         
-         function createCard(sName) {
-            var sCardDesign = '<div class="card mb-2 card-style"><div class="card-body">';
-            sCardDesign += '<p class="babyname-text">';
-            sCardDesign += sName;
-            sCardDesign += '<p>';
-            sCardDesign += '<button type="button" class="btn btn-danger btn-right" ';
-            sCardDesign += 'onclick="disableCard(this)">';
-            sCardDesign += 'Entfernen</button>';
-            sCardDesign += '</div></div>';
-                
-            var oCard = $(sCardDesign);
-            return oCard;
-         }
-         
-         function addName(sNameToBeAdded) {
-            var sName;
-            var oNameInput;
-            if (sNameToBeAdded) {
-               sName = sNameToBeAdded;
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+        <title>Babynamen</title>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <style>
+            body {
+                background-color: #89cff0;
             }
-            
-            else {
-               oNameInput = $('#inputName');
-               sName = oNameInput.val();
-            }                            
-             aNames.push(sName);
-            
-            if (!sName) {
-               return;
+            .btn-right {
+                float: right;
             }
-            
-            var oCard = createCard(sName);
-                    
-            var oContainer = $('#cardCollection');     
-            oContainer.prepend(oCard);
-            
-            oNameInput.val('');    
-         }
-         
-         function finishSelection() {
-            $('#allInput').hide();       
-         }
-         
-         function saveNames() {
-            localStorage.setItem("names", JSON.stringify(aNames));
-            alert(aNames.length + ' Namen gespeichert');           
-         }
-         
-          function loadNames() {
-             aNames.clear();
-            var storedNames = JSON.parse(localStorage.getItem("names"));  
-             
-             for (var loadedName in storedNames)   {
-                addName(loadedName);
-             }
-         }
-         
-      </script>
-   </head>
-   <body>
-      <div class="container">
-         <h1>Babynamen</h1>
-         <div id="allInput">
-            <div class="input-group mb-3">
-               <div class="input-group-prepend">
-                  <button class="btn btn-primary" type="button" id="button-addon1" onclick="addName()">Hinzufügen</button>
-               </div>
-               <input type="text" class="form-control" placeholder="Vorname" aria-label="Username" aria-describedby="basic-addon1" id="inputName"> 
+            .babyname-text {
+                float: left;
+                font-size: 1.5em;
+            }
+
+            .card-style {
+                background-color: #b8e8ff;
+            }
+        </style>
+        <script type="text/javascript">
+            var aNames = [];
+
+            function disableCard(oDisableButton) {
+                $(oDisableButton).parents(".card").hide();
+            }
+
+            function createCard(sName) {
+                var sCardDesign = '<div class="card mb-2 card-style"><div class="card-body">';
+                sCardDesign += '<p class="babyname-text">';
+                sCardDesign += sName;
+                sCardDesign += "<p>";
+                sCardDesign += '<button type="button" class="btn btn-danger btn-right" ';
+                sCardDesign += 'onclick="disableCard(this)">';
+                sCardDesign += "Entfernen</button>";
+                sCardDesign += "</div></div>";
+
+                var oCard = $(sCardDesign);
+                return oCard;
+            }
+
+            function addName(sNameToBeAdded) {
+                var sName;
+                var oNameInput;
+                if (sNameToBeAdded) {
+                    sName = sNameToBeAdded;
+                } else {
+                    oNameInput = $("#inputName");
+                    sName = oNameInput.val();
+                }
+                aNames.push(sName);
+
+                if (!sName) {
+                    return;
+                }
+
+                var oCard = createCard(sName);
+
+                var oContainer = $("#cardCollection");
+                oContainer.prepend(oCard);
+
+                oNameInput.val("");
+            }
+
+            function finishSelection() {
+                $("#allInput").hide();
+            }
+
+            function saveNames() {
+                localStorage.setItem("names", JSON.stringify(aNames));
+                alert(aNames.length + " Namen gespeichert");
+            }
+
+            function loadNames() {
+                aNames = [];
+                var storedNames = JSON.parse(localStorage.getItem("names"));
+
+                for (var loadedName in storedNames) {
+                    addName(loadedName);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Babynamen</h1>
+            <div id="allInput">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-primary" type="button" id="button-addon1" onclick="addName()">Hinzufügen</button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Vorname" aria-label="Username" aria-describedby="basic-addon1" id="inputName" />
+                </div>
+                <div class="input-group mb-3">
+                    <button type="button" class="btn btn-success mr-2" onclick="finishSelection()">Abschließen</button>
+                    <button type="button" class="btn btn-secondary mr-2" onclick="saveNames()">Liste speichern</button>
+                    <button type="button" class="btn btn-secondary mr-2" onclick="loadNames()">Liste laden</button>
+                </div>
             </div>
-            <div class="input-group mb-3">
-               <button type="button" class="btn btn-success mr-2" onclick="finishSelection()">Abschließen</button>
-               <button type="button" class="btn btn-secondary mr-2" onclick="saveNames()">Liste speichern</button>
-               <button type="button" class="btn btn-secondary mr-2" onclick="loadNames()">Liste laden</button>
-            </div>
-         </div>
-         <div class="container" id="cardCollection">
-         </div>
-      </div>
-   </body>
+            <div class="container" id="cardCollection"></div>
+        </div>
+    </body>
 </html>
