@@ -61,6 +61,11 @@
                 oNameInput.val("");
             }
             
+            function clearCards() {
+                var oContainer = $("#cardCollection");
+                oContainer.empty();
+            }
+            
             function onAdd() {
                 var sName = getNameFromUI();
                 addName(sName);
@@ -86,6 +91,8 @@
 
             function loadNames() {
                 aNames = [];
+                clearCards();
+                
                 var storedNames = JSON.parse(localStorage.getItem("names"));
 
                 for (var loadedIndex in storedNames) {
