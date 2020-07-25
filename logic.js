@@ -56,7 +56,7 @@ function addName(sName) {
     var oCard = createCard(sName);
 
     var oContainer = $("#cardCollection");
-    oContainer.append(oCard);
+    oContainer.prepend(oCard);
 }
 
 function finishSelection() {
