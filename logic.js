@@ -1,8 +1,7 @@
 var aNames = [];
 
 $(function() {
-    var oNameInput = $("#inputName");
-    oName.focus();
+    resetInputs();
 });
 
 function disableCard(oDisableButton) {
@@ -35,6 +34,7 @@ function getNameFromUI() {
 function resetInputs() {
     var oNameInput = $("#inputName");
     oNameInput.val("");
+    oNameInput.focus();
 }
 
 function clearCards() {
