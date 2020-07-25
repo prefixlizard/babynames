@@ -1,0 +1,14 @@
+body {
+                background-color: #89cff0;
+            }
+            .btn-right {
+                float: right;
+            }
+            .babyname-text {
+                float: left;
+                font-size: 1.5em;
+            }
+
+            .card-style {
+                background-color: #b8e8ff;
+            }
