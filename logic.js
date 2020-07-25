@@ -1,75 +1,75 @@
 var aNames = [];
 
-            function disableCard(oDisableButton) {
-                var sNameToBeDeleted = $(oDisableButton).parent().siblings('.babyname-text').text();
-                aNames = aNames.filter(sName => sName !== sNameToBeDeleted);           
-                $(oDisableButton).parents(".card").remove();
-            }
+function disableCard(oDisableButton) {
+    var sNameToBeDeleted = $(oDisableButton).parent().siblings('.babyname-text').text();
+    aNames = aNames.filter(sName => sName !== sNameToBeDeleted);
+    $(oDisableButton).parents(".card").remove();
+}
 
-            function createCard(sName) {
-                var sCardDesign = '<div class="card mb-2 card-style"><div class="card-body">';
-                sCardDesign += '<p class="babyname-text">';
-                sCardDesign += sName;
-                sCardDesign += "<p>";
-                sCardDesign += '<button type="button" class="btn btn-danger btn-right" ';
-                sCardDesign += 'onclick="disableCard(this)">';
-                sCardDesign += "Entfernen</button>";
-                sCardDesign += "</div></div>";
+function createCard(sName) {
+    var sCardDesign = '<div class="card mb-2 card-style"><div class="card-body">';
+    sCardDesign += '<p class="babyname-text">';
+    sCardDesign += sName;
+    sCardDesign += "<p>";
+    sCardDesign += '<button type="button" class="btn btn-danger btn-right" ';
+    sCardDesign += 'onclick="disableCard(this)">';
+    sCardDesign += "Entfernen</button>";
+    sCardDesign += "</div></div>";
 
-                var oCard = $(sCardDesign);
-                return oCard;
-            }
+    var oCard = $(sCardDesign);
+    return oCard;
+}
 
-            function getNameFromUI() {
-                var oNameInput = $("#inputName");
-                var sName = oNameInput.val();
-                
-                return sName;
-            }
-            
-            function resetInputs() {
-                var oNameInput = $("#inputName");
-                oNameInput.val("");
-            }
-            
-            function clearCards() {
-                var oContainer = $("#cardCollection");
-                oContainer.empty();
-            }
-            
-            function onAdd() {
-                var sName = getNameFromUI();
-                addName(sName);
-                resetInputs();               
-            }
-            
-            function addName(sName) {
-                if (!sName) {
-                    return;
-                }
-                aNames.push(sName);
-                var oCard = createCard(sName);
-                
-                var oContainer = $("#cardCollection");
-                oContainer.prepend(oCard);
-            }
+function getNameFromUI() {
+    var oNameInput = $("#inputName");
+    var sName = oNameInput.val();
 
-            function finishSelection() {
-                $("#allInput").hide();
-            }
+    return sName;
+}
 
-            function saveNames() {
-                localStorage.setItem("names", JSON.stringify(aNames));
-                alert(aNames.length + " Namen gespeichert");
-            }
+function resetInputs() {
+    var oNameInput = $("#inputName");
+    oNameInput.val("");
+}
 
-            function loadNames() {
-                aNames = [];
-                clearCards();
-                
-                var storedNames = JSON.parse(localStorage.getItem("names"));
+function clearCards() {
+    var oContainer = $("#cardCollection");
+    oContainer.empty();
+}
 
-                for (var loadedIndex in storedNames) {
-                    addName(storedNames[loadedIndex]);
-                }
-            }
+function onAdd() {
+    var sName = getNameFromUI();
+    addName(sName);
+    resetInputs();
+}
+
+function addName(sName) {
+    if (!sName) {
+        return;
+    }
+    aNames.push(sName);
+    var oCard = createCard(sName);
+
+    var oContainer = $("#cardCollection");
+    oContainer.prepend(oCard);
+}
+
+function finishSelection() {
+    $("#allInput").hide();
+}
+
+function saveNames() {
+    localStorage.setItem("names", JSON.stringify(aNames));
+    alert(aNames.length + " Namen gespeichert");
+}
+
+function loadNames() {
+    aNames = [];
+    clearCards();
+
+    var storedNames = JSON.parse(localStorage.getItem("names"));
+
+    for (var loadedIndex in storedNames) {
+        addName(storedNames[loadedIndex]);
+    }
+}
