@@ -12,99 +12,10 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-        <style>
-            body {
-                background-color: #89cff0;
-            }
-            .btn-right {
-                float: right;
-            }
-            .babyname-text {
-                float: left;
-                font-size: 1.5em;
-            }
-
-            .card-style {
-                background-color: #b8e8ff;
-            }
-        </style>
-        <script type="text/javascript">
-            var aNames = [];
-
-            function disableCard(oDisableButton) {
-                var sNameToBeDeleted = $(oDisableButton).parent().siblings('.babyname-text').text();
-                aNames = aNames.filter(sName => sName !== sNameToBeDeleted);           
-                $(oDisableButton).parents(".card").remove();
-            }
-
-            function createCard(sName) {
-                var sCardDesign = '<div class="card mb-2 card-style"><div class="card-body">';
-                sCardDesign += '<p class="babyname-text">';
-                sCardDesign += sName;
-                sCardDesign += "<p>";
-                sCardDesign += '<button type="button" class="btn btn-danger btn-right" ';
-                sCardDesign += 'onclick="disableCard(this)">';
-                sCardDesign += "Entfernen</button>";
-                sCardDesign += "</div></div>";
-
-                var oCard = $(sCardDesign);
-                return oCard;
-            }
-
-            function getNameFromUI() {
-                var oNameInput = $("#inputName");
-                var sName = oNameInput.val();
-                
-                return sName;
-            }
-            
-            function resetInputs() {
-                var oNameInput = $("#inputName");
-                oNameInput.val("");
-            }
-            
-            function clearCards() {
-                var oContainer = $("#cardCollection");
-                oContainer.empty();
-            }
-            
-            function onAdd() {
-                var sName = getNameFromUI();
-                addName(sName);
-                resetInputs();               
-            }
-            
-            function addName(sName) {
-                if (!sName) {
-                    return;
-                }
-                aNames.push(sName);
-                var oCard = createCard(sName);
-                
-                var oContainer = $("#cardCollection");
-                oContainer.prepend(oCard);
-            }
-
-            function finishSelection() {
-                $("#allInput").hide();
-            }
-
-            function saveNames() {
-                localStorage.setItem("names", JSON.stringify(aNames));
-                alert(aNames.length + " Namen gespeichert");
-            }
-
-            function loadNames() {
-                aNames = [];
-                clearCards();
-                
-                var storedNames = JSON.parse(localStorage.getItem("names"));
-
-                for (var loadedIndex in storedNames) {
-                    addName(storedNames[loadedIndex]);
-                }
-            }
-        </script>
+        
+        <link rel="stylesheet" href="styles.css">
+        <script src="logic.js"></script>
+        
     </head>
     <body>
         <div class="container">
