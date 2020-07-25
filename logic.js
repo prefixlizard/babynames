@@ -5,16 +5,17 @@ $(function() {
 });
 
 function disableCard(oDisableButton) {
+    // Array deletion
     var sNameToBeDeleted = $(oDisableButton).parent().siblings('.babyname-text').text();
     aNames = aNames.filter(sName => sName !== sNameToBeDeleted);
 
+    // Restyle button and card
     $(oDisableButton).attr('disabled', '');
     $(oDisableButton).parents(".card").addClass('card-disabled');
     
-    
+    // Order card below
     var oContainer = $("#cardCollection");
     var oCard = $(oDisableButton).parents(".card");
- 
     oContainer.append(oCard);
 }
 
