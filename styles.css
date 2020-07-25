@@ -12,3 +12,7 @@ body {
      background-color: #b8e8ff;
 }
  
+.card-disabled {
+     rgba(245, 245, 245, 1);
+     opacity: 0.3;
+}
