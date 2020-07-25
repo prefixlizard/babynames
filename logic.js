@@ -7,7 +7,8 @@ $(function() {
 function disableCard(oDisableButton) {
     var sNameToBeDeleted = $(oDisableButton).parent().siblings('.babyname-text').text();
     aNames = aNames.filter(sName => sName !== sNameToBeDeleted);
-    $(oDisableButton).parents(".card").remove();
+    // $(oDisableButton).parents(".card").remove();
+    $(oDisableButton).parents(".card").addClass('card-disabled');
 }
 
 function createCard(sName) {
