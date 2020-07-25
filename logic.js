@@ -10,6 +10,12 @@ function disableCard(oDisableButton) {
 
     $(oDisableButton).attr('disabled', '');
     $(oDisableButton).parents(".card").addClass('card-disabled');
+    
+    
+    var oContainer = $("#cardCollection");
+    var oCard = $(oDisableButton).parents(".card");
+ 
+    oContainer.append(oCard);
 }
 
 function createCard(sName) {
