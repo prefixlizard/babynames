@@ -1,5 +1,10 @@
 var aNames = [];
 
+$(function() {
+    var oNameInput = $("#inputName");
+    oName.focus();
+});
+
 function disableCard(oDisableButton) {
     var sNameToBeDeleted = $(oDisableButton).parent().siblings('.babyname-text').text();
     aNames = aNames.filter(sName => sName !== sNameToBeDeleted);
